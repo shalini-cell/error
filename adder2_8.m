@@ -1,0 +1,23 @@
+function [sum]= adder2_8(in1,in2,cor,s)
+    cy=zeros(1,11);
+    n1=~in2(9);
+    if(s)
+        n2=in1(9);
+        n3=~in1(9);
+    else
+        n2=in1(10);
+        n3=in1(11);
+    end
+    [sum(1),cy(1)]=ha(in1(1),cor);
+    [sum(2),cy(2)]=ha(in1(2),cy(1));
+    [sum(3),cy(3)]=fa(in1(3),in2(1),cy(2));
+    [sum(4),cy(4)]=fa(in1(4),in2(2),cy(3));
+    [sum(5),cy(5)]=fa(in1(5),in2(3),cy(4));
+    [sum(6),cy(6)]=fa(in1(6),in2(4),cy(5));
+    [sum(7),cy(7)]=fa(in1(7),in2(5),cy(6));
+    [sum(8),cy(8)]=fa(in1(8),in2(6),cy(7));
+    [sum(9),cy(9)]=fa(in1(9),in2(7),cy(8));
+    [sum(10),cy(10)]=fa(n2,in2(8),cy(9));
+    [sum(11),cy(11)]=fa(n3,n1,cy(10));
+    [sum(12),sum(13)]=fa(1,0,cy(11));
+end
